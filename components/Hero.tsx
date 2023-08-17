@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 const Hero = () => {
   return (
     <section className="mt-40 flex flex-col items-center sm:mx-10 lg:mx-40 2xl:mx-96 ">
@@ -9,9 +11,11 @@ const Hero = () => {
         resonate with your goals, creating a bridge between your dreams and
         professional reality
       </h2>
-      <button className="mt-14 w-max rounded-lg bg-pink-500 px-5 py-2 text-xl text-white transition  duration-200 ease-out hover:scale-125">
-        Join our waitlist
-      </button>
+      <Link href="Waitlist">
+        <button className="mt-14 w-max rounded-lg bg-pink-500 px-5 py-2 text-xl text-white transition  duration-200 ease-out hover:scale-125">
+          Join our waitlist
+        </button>
+      </Link>
     </section>
   )
 }
