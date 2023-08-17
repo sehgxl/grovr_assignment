@@ -32,14 +32,12 @@ const JobFilters: FunctionComponent<{ setFilters: Function }> = ({
       </select>
 
       <input
-        onKeyDown={(e) => {
-          if (e.key === "Enter") {
-            console.log(e.target.value)
-            setFilters((old: object) => ({
-              ...old,
-              min_salary: e.target.value,
-            }))
-          }
+        onChange={(e) => {
+          console.log(e.target)
+          setFilters((old: object) => ({
+            ...old,
+            min_salary: e.target.value,
+          }))
         }}
         min={0}
         step={100}
