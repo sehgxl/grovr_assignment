@@ -15,24 +15,23 @@ const JobList: FunctionComponent<{
   const [Loading, setLoading] = useState(false)
   const [Jobs, setJobs] = useState([])
   const [Fail, setFail] = useState(false)
-  const results = 10
+  const limit = 10
   useEffect(() => {
     const getData = async () => {
       try {
         setLoading(true)
         const res = await fetch(
-          `http://api.adzuna.com:80/v1/api/jobs/${Filters.country}/search/1?app_id=39f59b82&app_key=902a41619a9e539cb04ac4723c917bd9&results_per_page=${results}&what=${Filters.role}&sort_by=${Filters.sort_by}&salary_min=${Filters.min_salary}`,
+          `https://himalayas.app/jobs/api?limit=${limit}`,
 
           {
             method: "GET",
-            mode: "cors",
             headers: {
               "Content-Type": "application/json",
             },
           }
         )
         const data = await res.json()
-        setJobs(data.results)
+        setJobs(data.jobs)
         setLoading(false)
       } catch (error) {
         setFail(true)
