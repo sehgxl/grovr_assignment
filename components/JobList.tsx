@@ -21,10 +21,11 @@ const JobList: FunctionComponent<{
       try {
         setLoading(true)
         const res = await fetch(
-          `https://api.adzuna.com:80/v1/api/jobs/${Filters.country}/search/1?app_id=39f59b82&app_key=902a41619a9e539cb04ac4723c917bd9&results_per_page=${results}&what=${Filters.role}&sort_by=${Filters.sort_by}&salary_min=${Filters.min_salary}`,
+          `http://api.adzuna.com:80/v1/api/jobs/${Filters.country}/search/1?app_id=39f59b82&app_key=902a41619a9e539cb04ac4723c917bd9&results_per_page=${results}&what=${Filters.role}&sort_by=${Filters.sort_by}&salary_min=${Filters.min_salary}`,
 
           {
             method: "GET",
+            mode: "cors",
             headers: {
               "Content-Type": "application/json",
             },
